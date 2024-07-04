@@ -10,7 +10,7 @@ from PIL import Image, ImageTk
 import cv2
 import numpy as np
 
-# Initialize recognizer and text-to-speech engine
+
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -61,9 +61,6 @@ def run_alexa(command_label):
         info = wikipedia.summary(person, 1)
         response = info
         talk(info)
-    elif 'who is our python sir' in command:
-        response = 'Mr. Gagandeep is our mentor'
-        talk(response)
     elif 'date' in command:
         response = 'Sorry, I have a headache'
         talk(response)
@@ -88,7 +85,7 @@ def run_alexa(command_label):
 def on_button_click(command_label):
     run_alexa(command_label)
 
-# Set up OpenCV window for visual feedback
+
 def show_feedback(response):
     feedback_img = np.zeros((300, 800, 3), dtype=np.uint8)
     cv2.putText(feedback_img, response, (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2, cv2.LINE_AA)
